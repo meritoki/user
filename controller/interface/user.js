@@ -6,16 +6,28 @@
 var relational = require('../../model/relational.js');
 var properties = require('../properties.js');
 
-exports.postUser = function(req, res, next) {
-  console.log('getUser');
-  console.log(req.body);
+exports.postIDUser = function(req, res, next) {
+  console.log('getIDUser');
   var idUser = req.body.idUser;
-  console.log('postUser '+idUser);
-  relational.postUser(idUser, function (error, u) {
+  relational.getIDUser(idUser, function (error, u) {
     if (error) {
-      res.end(error);
+      console.log(error);
+      var status = 500;
+      res.status(status).end(http.STATUS_CODES[status]);
     } else {
       res.end(JSON.stringify(u));
     }
   });
 };
+
+exports.postUser = function(req, res, next) {
+  relational.setUser(req.body, function (error, boolean) {
+    if (error) {
+      console.log(error);
+      var status = 500;
+      res.status(status).end(http.STATUS_CODES[status]);
+    } else {
+      res.end(JSON.stringify(boolean));
+    }
+  });
+}

@@ -11,5 +11,6 @@ exports.get = function(router) {
 
 exports.post = function(router) {
   console.log('service.path.post()');
-  router.post("/v1/user/id", user.postUser);
+  router.post("/v1/user/id", user.postIDUser);
+  router.post("/v1/user", user.postUser);
 };

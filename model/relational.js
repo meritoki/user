@@ -4,7 +4,7 @@ var bcrypt = require('bcryptjs');
 var user = require('./object/user.js');
 
 
-exports.postUser = function(idUser, callback) {
+exports.getIDUser = function(idUser, callback) {
   console.log('relational.postUser ' + idUser);
   if (typeof idUser !== "undefined") {
     database.getQueryResult(sql.selectUser(idUser), function(err, result) {
@@ -27,3 +27,8 @@ exports.postUser = function(idUser, callback) {
     return callback(new Error("typeof name === \"undefined\""), null);
   }
 };
+
+
+exports.setUser = function(user,callback) {
+  
+}
