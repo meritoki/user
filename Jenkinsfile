@@ -1,16 +1,13 @@
-pipeline {
-  agent {
-    node {
-      label 'agent any'
-    }
 
-  }
-  stages {
-    stage('build') {
-      steps {
-        sh '''sh echo "helloworld" && cd user && git checkout 0.2 && npm install
-'''
-      }
+pipeline {
+    agent { docker { image 'node:6.3' } }
+    stages {
+        stage('build') {
+            steps {
+                sh 'npm --version'
+                sh 'cd user'
+                sh 'git checkout 0.2'
+            }
+        }
     }
-  }
 }
