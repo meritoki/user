@@ -10,8 +10,8 @@ pipeline {
       steps {
         sh 'npm --version'
         sh 'ls'
-        sh 'npm install'
-        sh 'node index.js'
+        sh 'curl -sL https://deb.nodesource.com/setup_8.x | sudo bash -'
+        sh 'apt-get install nodejs'
       }
     }
   }
