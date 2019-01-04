@@ -10,7 +10,7 @@ pipeline {
       steps {
         sh 'npm --version'
         sh 'ls'
-        sh 'nodejs index.js'
+        sh 'node index.js'
       }
     }
   }
