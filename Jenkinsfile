@@ -9,7 +9,7 @@ pipeline {
     stage('build') {
       steps {
         sh 'npm --version'
-        sh 'git checkout 0.2'
+        sh 'ls'
       }
     }
   }
