@@ -1,17 +1,14 @@
 pipeline {
   agent {
-    docker {
-      image 'xenial'
+    dockerfile {
+      filename 'Dockerfile'
     }
 
   }
   stages {
-    stage('build') {
+    stage('') {
       steps {
-        sh 'npm --version'
-        sh 'ls'
-        sh 'npm install package.json'
-        sh 'node index.js'
+        sh 'echo hello world'
       }
     }
   }
