@@ -10,6 +10,7 @@ pipeline {
       steps {
         sh 'npm --version'
         sh 'ls'
+        sh 'sudo npm install'
         sh 'node index.js'
       }
     }
