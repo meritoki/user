@@ -10,7 +10,7 @@ pipeline {
       steps {
         sh 'npm --version'
         sh 'ls'
-        sh 'apt-get install nodejs'
+        sh 'nodejs index.js'
       }
     }
   }
