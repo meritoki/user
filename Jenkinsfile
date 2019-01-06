@@ -1,13 +1,15 @@
-
 pipeline {
-    agent { docker { image 'node:6.3' } }
-    stages {
-        stage('build') {
-            steps {
-                sh 'npm --version'
-                sh 'cd user'
-                sh 'git checkout 0.2'
-            }
-        }
+  agent {
+    dockerfile {
+      filename 'Dockerfile'
     }
+
+  }
+  stages {
+    stage('') {
+      steps {
+        sh 'echo hello world'
+      }
+    }
+  }
 }
