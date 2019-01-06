@@ -13,3 +13,8 @@ exports.selectUser = function (idUser) {
           'LEFT OUTER JOIN `user`.Donor donor ON `user`.id = donor.idUser '+
           'WHERE user.id = '+idUser+';'
 };
+
+exports.insertUser = function (user) {
+  return 'INSERT INTO auth.User (idAgent,idMerchant,idConsumer,idCustomer,idDoner) '+
+         'VALUES ('+user.idAgent+', '+user.idMerchant+', '+user.idConsumer+', '+user.idCustomer+', '+user.idDonor+');'
+}
