@@ -5,6 +5,7 @@
  */
 var relational = require('../../model/relational.js');
 var properties = require('../properties.js');
+var http = require('http');
 
 exports.postIDUser = function(req, res, next) {
   console.log('getIDUser');

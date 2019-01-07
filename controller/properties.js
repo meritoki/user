@@ -47,3 +47,7 @@ properties.session.maxAge = 7200000; //1 hour in milliseconds
 properties.session.secret = 'color';
 
 module.exports = properties;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0.2

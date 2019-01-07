@@ -41,47 +41,6 @@
 				}
 			},
 			"response": []
-		},
-		{
-			"name": "localhost:3001/v1/user",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"type": "text",
-						"value": "application/x-www-form-urlencoded"
-					}
-				],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "idUser",
-							"value": "1",
-							"type": "text"
-						},
-						{
-							"key": "idC",
-							"value": "",
-							"type": "text"
-						}
-					]
-				},
-				"url": {
-					"raw": "localhost:3001/v1/user",
-					"host": [
-						"localhost"
-					],
-					"port": "3001",
-					"path": [
-						"v1",
-						"user"
-					]
-				}
-			},
-			"response": []
 		}
 	]
 }

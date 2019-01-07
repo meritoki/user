@@ -15,6 +15,13 @@ exports.selectUser = function (idUser) {
 };
 
 exports.insertUser = function (user) {
-  return 'INSERT INTO auth.User (idAgent,idMerchant,idConsumer,idCustomer,idDoner) '+
-         'VALUES ('+user.idAgent+', '+user.idMerchant+', '+user.idConsumer+', '+user.idCustomer+', '+user.idDonor+');'
+  var sql = ""
+  if(user.idConsumer != "undefined") {
+    sql = this.insertConsumer(user);
+  }
+  return sql;
+}
+
+exports.insertConsumer = function (user) {
+  return 'INSERT INTO user.Consumer (idUser,id,uuid) VALUES ('+user.idUser+', '+user.idConsumer+', UUID())'
 }
