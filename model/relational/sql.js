@@ -16,12 +16,29 @@ exports.selectUser = function (idUser) {
 
 exports.insertUser = function (user) {
   var sql = ""
-  if(user.idConsumer != "undefined") {
-    sql = this.insertConsumer(user);
+  var roles = user.role.split(",");
+  for(i = 0; i <roles.length; i++) {
+    if(roles[i] === "consumer") {
+      sql+="CALL insertConsumer("+user.idUser+")";
+    } else if(roles[i] === "donor") {
+      sql+="CALL insertDonor("+user.idUser+")";
+    }
   }
   return sql;
 }
 
 exports.insertConsumer = function (user) {
-  return 'INSERT INTO user.Consumer (idUser,id,uuid) VALUES ('+user.idUser+', '+user.idConsumer+', UUID())'
+  return 'INSERT INTO user.Consumer (idUser,uuid) VALUES ('+user.idUser+', UUID());'
+}
+
+exports.insertDonor = function (user) {
+  return 'INSERT INTO user.Donor (idUser,uuid) VALUES ('+user.idUser+', UUID());'
+}
+
+exports.selectConsumer = function (idUser) {
+  return 'SELECT id FROM user.Consumer WHERE idUser='+idUser+';';
+}
+
+exports.selectDonor = function (idUser) {
+  return 'SELECT id FROM user.Donor WHERE idUser='+idUser+';';
 }
