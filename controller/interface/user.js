@@ -24,6 +24,7 @@ exports.postIDUser = function(req, res, next) {
 };
 
 exports.postUser = function(req, res, next) {
+  console.log("postUser");
   relational.setUser(req.body, function (error, boolean) {
     if (error) {
       console.log(error);
